@@ -1,0 +1,423 @@
+; gl_CompanionPerksStay.txt
+; Companion Perks Stay - ESPless
+; Each companion gets its own callback under 512 chars.
+
+print "Companion Perks Stay: Initializing..."
+
+; === FNV BASE COMPANIONS ===
+
+; Boone
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "96BCE"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk Spotting
+player.AuxVarSetFlt "CPS_Bo" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Bo" && player.HasPerk Spotting == 0
+player.AddPerk Spotting
+MessageEx "Perk retained: Boone - Spotter"
+endif
+endif
+end) 1 60 9
+
+; Cass
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "135F19"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk WhiskeyRose
+player.AuxVarSetFlt "CPS_Ca" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Ca" && player.HasPerk WhiskeyRose == 0
+player.AddPerk WhiskeyRose
+MessageEx "Perk retained: Cass - Whiskey Rose"
+endif
+endif
+end) 1 60 9
+
+; Arcade
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "10D8EB"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk BetterHealing
+player.AuxVarSetFlt "CPS_Ar" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Ar" && player.HasPerk BetterHealing == 0
+player.AddPerk BetterHealing
+MessageEx "Perk retained: Arcade - Better Healing"
+endif
+endif
+end) 1 60 9
+
+; Veronica
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "E32A9"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk ScribeAssistant
+player.AuxVarSetFlt "CPS_Ve" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Ve" && player.HasPerk ScribeAssistant == 0
+player.AddPerk ScribeAssistant
+MessageEx "Perk retained: Veronica - Scribe Assistant"
+endif
+endif
+end) 1 60 9
+
+; Rex
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "10D8DF"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk SearchAndMark
+player.AuxVarSetFlt "CPS_Rx" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Rx" && player.HasPerk SearchAndMark == 0
+player.AddPerk SearchAndMark
+MessageEx "Perk retained: Rex - Search and Mark"
+endif
+endif
+end) 1 60 9
+
+; ED-E (Base - EDE1Ref)
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "1732D1"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk EnhancedSensors
+player.AuxVarSetFlt "CPS_Ed" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Ed" && player.HasPerk EnhancedSensors == 0
+player.AddPerk EnhancedSensors
+MessageEx "Perk retained: ED-E - Enhanced Sensors"
+endif
+endif
+end) 1 60 9
+
+; ED-E (Upgraded Armor - EDE2Ref)
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "1732D0"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk EnhancedSensors
+player.AuxVarSetFlt "CPS_Ed" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Ed" && player.HasPerk EnhancedSensors == 0
+player.AddPerk EnhancedSensors
+endif
+endif
+end) 1 60 9
+
+; ED-E (Upgraded Weapons - EDE3Ref)
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "1732CF"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk EnhancedSensors
+player.AuxVarSetFlt "CPS_Ed" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Ed" && player.HasPerk EnhancedSensors == 0
+player.AddPerk EnhancedSensors
+endif
+endif
+end) 1 60 9
+
+; Lily
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "13D830"
+if eval c
+if eval c.GetPlayerTeammate || player.HasPerk StealthGirl
+player.AuxVarSetFlt "CPS_Li" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Li" && player.HasPerk StealthGirl == 0
+player.AddPerk StealthGirl
+MessageEx "Perk retained: Lily - Stealth Girl"
+endif
+endif
+end) 1 60 9
+
+; Raul - Regular Maintenance
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "E6105"
+if eval c
+if eval c.GetPlayerTeammate && player.HasPerk RegularMaintenance
+player.AuxVarSetFlt "CPS_RR" 1
+endif
+if eval player.AuxVarGetFlt "CPS_RR" && player.HasPerk RegularMaintenance == 0
+player.AddPerk RegularMaintenance
+MessageEx "Perk retained: Raul - Regular Maintenance"
+endif
+endif
+end) 1 60 9
+
+; Raul - Full Maintenance
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "E6105"
+if eval c
+if eval c.GetPlayerTeammate && player.HasPerk FullMaintenance
+player.AuxVarSetFlt "CPS_RF" 1
+endif
+if eval player.AuxVarGetFlt "CPS_RF" && player.HasPerk FullMaintenance == 0
+player.AddPerk FullMaintenance
+MessageEx "Perk retained: Raul - Full Maintenance"
+endif
+endif
+end) 1 60 9
+
+; Raul - Old Vaquero
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "E6105"
+if eval c
+if eval c.GetPlayerTeammate && player.HasPerk OldVaquero
+player.AuxVarSetFlt "CPS_RO" 1
+endif
+if eval player.AuxVarGetFlt "CPS_RO" && player.HasPerk OldVaquero == 0
+player.AddPerk OldVaquero
+MessageEx "Perk retained: Raul - Old Vaquero"
+endif
+endif
+end) 1 60 9
+
+; === DEAD MONEY DLC ===
+
+; Dean Domino
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "DeadMoney.esm" "1309"
+ref p = GetFormFromMod "DeadMoney.esm" "8A2F"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_De" 1
+endif
+if eval player.AuxVarGetFlt "CPS_De" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Dean - Unclean Living"
+endif
+endif
+end) 1 60 9
+
+; Dog/God
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "DeadMoney.esm" "1306"
+ref p = GetFormFromMod "DeadMoney.esm" "8A2E"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Dg" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Dg" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Dog/God - Signal Interference"
+endif
+endif
+end) 1 60 9
+
+; Christine
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "DeadMoney.esm" "1307"
+ref p = GetFormFromMod "DeadMoney.esm" "13B26"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Ch" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Ch" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Christine - In My Footsteps"
+endif
+endif
+end) 1 60 9
+
+; === HONEST HEARTS DLC ===
+
+; Joshua Graham
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "HonestHearts.esm" "93BE"
+ref p = GetFormFromMod "HonestHearts.esm" "B2F5"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_JG" 1
+endif
+if eval player.AuxVarGetFlt "CPS_JG" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Joshua Graham"
+endif
+endif
+end) 1 60 9
+
+; Waking Cloud
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "HonestHearts.esm" "9666"
+ref p = GetFormFromMod "HonestHearts.esm" "B2F7"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_WC" 1
+endif
+if eval player.AuxVarGetFlt "CPS_WC" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Waking Cloud"
+endif
+endif
+end) 1 60 9
+
+; Follows-Chalk
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "HonestHearts.esm" "94D1"
+ref p = GetFormFromMod "HonestHearts.esm" "B2F6"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_FC" 1
+endif
+if eval player.AuxVarGetFlt "CPS_FC" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Follows-Chalk"
+endif
+endif
+end) 1 60 9
+
+; === LONESOME ROAD DLC ===
+
+; ED-E (Lonesome Road)
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "LonesomeRoad.esm" "4D16"
+ref p = GetFormFromMod "LonesomeRoad.esm" "C61F"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_EL" 1
+endif
+if eval player.AuxVarGetFlt "CPS_EL" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: ED-E (LR) - Camaraderie"
+endif
+endif
+end) 1 60 9
+
+; === TTW / FALLOUT 3 COMPANIONS ===
+
+; Dogmeat
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "6A775"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E99"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Dm" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Dm" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Dogmeat"
+endif
+endif
+end) 1 60 9
+
+; Charon
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "2B8E1"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7EA0"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Cn" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Cn" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Charon"
+endif
+endif
+end) 1 60 9
+
+; Fawkes
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "2D9CF"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E9B"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Fw" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Fw" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Fawkes"
+endif
+endif
+end) 1 60 9
+
+; Jericho
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "3B5D"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E9F"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Je" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Je" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Jericho"
+endif
+endif
+end) 1 60 9
+
+; Clover
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "384D8"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E9E"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Cl" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Cl" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Clover"
+endif
+endif
+end) 1 60 9
+
+; Star Paladin Cross
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "62735"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E9C"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Cr" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Cr" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Star Paladin Cross"
+endif
+endif
+end) 1 60 9
+
+; Sergeant RL-3
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "94285"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E9A"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_RL" 1
+endif
+if eval player.AuxVarGetFlt "CPS_RL" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Sergeant RL-3"
+endif
+endif
+end) 1 60 9
+
+; Butch
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "2A4E8"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E9D"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_Bu" 1
+endif
+if eval player.AuxVarGetFlt "CPS_Bu" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Butch"
+endif
+endif
+end) 1 60 9
+
+; Butch (Advanced)
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "Fallout3.esm" "2A4E8"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "9089"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_BA" 1
+endif
+if eval player.AuxVarGetFlt "CPS_BA" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: Butch (advanced)"
+endif
+endif
+end) 1 60 9
+
+print "Companion Perks Stay: Loaded. 28 companions tracked."

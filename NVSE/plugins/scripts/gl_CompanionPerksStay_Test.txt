@@ -1,0 +1,211 @@
+; gl_CompanionPerksStay_Test.txt
+; Test script for Companion Perks Stay
+; Force-hires and teleports all companions to the player.
+; Enable via CompanionPerksStay.ini [Testing] bTestMode = 1
+; Warning: This script recruits all companions. Due to engine limitations, some companions will be automatically dismissed to stay within the companion limit. Be aware that speaking to certain companions may trigger their associated quests. For example, talking to Christine will begin her Dead Money storyline.
+
+float fTest
+set fTest to GetINIFloat "Testing:bTestMode" "CompanionPerksStay.ini"
+if eval fTest == 0
+    return
+endif
+
+print "=== CPS TEST MODE: Force-hiring all companions ==="
+
+ref rComp
+
+; === FNV BASE COMPANIONS ===
+
+; Boone
+set rComp to GetFormFromMod "FalloutNV.esm" "96BCE"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Boone"
+endif
+
+; Cass
+set rComp to GetFormFromMod "FalloutNV.esm" "135F19"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Cass"
+endif
+
+; Arcade
+set rComp to GetFormFromMod "FalloutNV.esm" "10D8EB"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Arcade"
+endif
+
+; Veronica
+set rComp to GetFormFromMod "FalloutNV.esm" "E32A9"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Veronica"
+endif
+
+; Rex
+set rComp to GetFormFromMod "FalloutNV.esm" "10D8DF"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Rex"
+endif
+
+; ED-E (Base)
+set rComp to GetFormFromMod "FalloutNV.esm" "1732D1"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired ED-E (Base)"
+endif
+
+; Lily
+set rComp to GetFormFromMod "FalloutNV.esm" "13D830"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Lily"
+endif
+
+; Raul
+set rComp to GetFormFromMod "FalloutNV.esm" "E6105"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Raul"
+endif
+
+; === DEAD MONEY DLC ===
+
+; Dean Domino
+set rComp to GetFormFromMod "DeadMoney.esm" "1309"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Dean Domino"
+endif
+
+; Dog/God
+set rComp to GetFormFromMod "DeadMoney.esm" "1306"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Dog/God"
+endif
+
+; Christine
+set rComp to GetFormFromMod "DeadMoney.esm" "1307"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Christine"
+endif
+
+; === HONEST HEARTS DLC ===
+
+; Joshua Graham
+set rComp to GetFormFromMod "HonestHearts.esm" "93BE"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Joshua Graham"
+endif
+
+; Waking Cloud
+set rComp to GetFormFromMod "HonestHearts.esm" "9666"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Waking Cloud"
+endif
+
+; Follows-Chalk
+set rComp to GetFormFromMod "HonestHearts.esm" "94D1"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Follows-Chalk"
+endif
+
+; === LONESOME ROAD DLC ===
+
+; ED-E (Lonesome Road)
+set rComp to GetFormFromMod "LonesomeRoad.esm" "4D16"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired ED-E (LR)"
+endif
+
+; === TTW / FALLOUT 3 COMPANIONS ===
+
+; Dogmeat
+set rComp to GetFormFromMod "Fallout3.esm" "6A775"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Dogmeat"
+endif
+
+; Charon
+set rComp to GetFormFromMod "Fallout3.esm" "2B8E1"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Charon"
+endif
+
+; Fawkes
+set rComp to GetFormFromMod "Fallout3.esm" "2D9CF"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Fawkes"
+endif
+
+; Jericho
+set rComp to GetFormFromMod "Fallout3.esm" "3B5D"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Jericho"
+endif
+
+; Clover
+set rComp to GetFormFromMod "Fallout3.esm" "384D8"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Clover"
+endif
+
+; Star Paladin Cross
+set rComp to GetFormFromMod "Fallout3.esm" "62735"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Star Paladin Cross"
+endif
+
+; Sergeant RL-3
+set rComp to GetFormFromMod "Fallout3.esm" "94285"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Sergeant RL-3"
+endif
+
+; Butch
+set rComp to GetFormFromMod "Fallout3.esm" "2A4E8"
+if eval rComp
+    rComp.SetPlayerTeammate 1
+    rComp.MoveTo player
+    print "CPS Test: Hired Butch"
+endif
+
+print "=== CPS TEST MODE: All available companions hired and teleported ==="
