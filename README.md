@@ -16,11 +16,14 @@ Keeps companion perks active permanently once you've recruited them, even after 
 
 ## Installation
 
-### Mod Manager (Recommended)
+### Download from NexusMods
+https://www.nexusmods.com/newvegas/mods/98382
+
+#### Mod Manager (Recommended)
 1. Install the ZIP archive using Mod Organizer 2 or Vortex.
 2. Enable the mod. (No load order sorting is necessary as there is no plugin file).
 
-### Manual Installation
+#### Manual Installation
 Extract the contents of the archive directly into your Fallout New Vegas `Data` folder.
 
 ---
