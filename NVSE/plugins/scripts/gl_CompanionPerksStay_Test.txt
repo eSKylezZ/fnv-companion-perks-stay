@@ -1,211 +1,351 @@
 ; gl_CompanionPerksStay_Test.txt
-; Test script for Companion Perks Stay
-; Force-hires and teleports all companions to the player.
+; CPS Test - three states:
+;   State 0: arm all CPS AuxVars to 1, strip all companion perks
+;   State 1: wait (per tick) until Spotting is restored by CPS
+;   State 2: check and print PASS/FAIL for every perk
 ; Enable via CompanionPerksStay.ini [Testing] bTestMode = 1
-; Warning: This script recruits all companions. Due to engine limitations, some companions will be automatically dismissed to stay within the companion limit. Be aware that speaking to certain companions may trigger their associated quests. For example, talking to Christine will begin her Dead Money storyline.
+; Reset: set bTestMode = 0 (clears state), then re-enable
 
 float fTest
+float fState
+ref rPerk
+
 set fTest to GetINIFloat "Testing:bTestMode" "CompanionPerksStay.ini"
 if eval fTest == 0
+    player.AuxVarSetFlt "CPS_TS" 0
     return
 endif
 
-print "=== CPS TEST MODE: Force-hiring all companions ==="
-
-ref rComp
-
-; === FNV BASE COMPANIONS ===
-
-; Boone
-set rComp to GetFormFromMod "FalloutNV.esm" "96BCE"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Boone"
+set fState to player.AuxVarGetFlt "CPS_TS"
+if eval fState == 99
+    return
 endif
 
-; Cass
-set rComp to GetFormFromMod "FalloutNV.esm" "135F19"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Cass"
+; STATE 0: arm AuxVars + strip perks
+if eval fState == 0
+    print "=== CPS TEST: Arming AuxVars and stripping perks ==="
+    player.AuxVarSetFlt "CPS_Bo" 1
+    player.AuxVarSetFlt "CPS_Ca" 1
+    player.AuxVarSetFlt "CPS_CC" 1
+    player.AuxVarSetFlt "CPS_CV" 1
+    player.AuxVarSetFlt "CPS_Ar" 1
+    player.AuxVarSetFlt "CPS_Ve" 1
+    player.AuxVarSetFlt "CPS_VB" 1
+    player.AuxVarSetFlt "CPS_VC" 1
+    player.AuxVarSetFlt "CPS_Rx" 1
+    player.AuxVarSetFlt "CPS_Ed" 1
+    player.AuxVarSetFlt "CPS_Li" 1
+    player.AuxVarSetFlt "CPS_RR" 1
+    player.AuxVarSetFlt "CPS_RF" 1
+    player.AuxVarSetFlt "CPS_RO" 1
+    player.AuxVarSetFlt "CPS_De" 1
+    player.AuxVarSetFlt "CPS_Dg" 1
+    player.AuxVarSetFlt "CPS_Ch" 1
+    player.AuxVarSetFlt "CPS_JG" 1
+    player.AuxVarSetFlt "CPS_WC" 1
+    player.AuxVarSetFlt "CPS_FC" 1
+    player.AuxVarSetFlt "CPS_EL" 1
+    player.AuxVarSetFlt "CPS_EE" 1
+    player.AuxVarSetFlt "CPS_Dm" 1
+    player.AuxVarSetFlt "CPS_Cn" 1
+    player.AuxVarSetFlt "CPS_Fw" 1
+    player.AuxVarSetFlt "CPS_Je" 1
+    player.AuxVarSetFlt "CPS_Cl" 1
+    player.AuxVarSetFlt "CPS_Cr" 1
+    player.AuxVarSetFlt "CPS_RL" 1
+    player.AuxVarSetFlt "CPS_Bu" 1
+    player.RemovePerk Spotting
+    player.RemovePerk WhiskeyRose
+    player.RemovePerk CalmHeartPerk
+    player.RemovePerk HandOfVengeance
+    player.RemovePerk BetterHealing
+    player.RemovePerk ScribeAssistant
+    player.RemovePerk BondsOfSteel
+    player.RemovePerk CauselessRebel
+    player.RemovePerk SearchAndMark
+    player.RemovePerk EnhancedSensors
+    player.RemovePerk StealthGirl
+    player.RemovePerk RegularMaintenance
+    player.RemovePerk FullMaintenance
+    player.RemovePerk OldVaquero
+    set rPerk to GetFormFromMod "DeadMoney.esm" "8A2F"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "DeadMoney.esm" "13B26"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "DeadMoney.esm" "8A2E"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "HonestHearts.esm" "B2F5"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "HonestHearts.esm" "B2F7"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "HonestHearts.esm" "B2F6"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "LonesomeRoad.esm" "C61F"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "LonesomeRoad.esm" "DF65"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E99"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7EA0"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9B"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9F"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9E"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9C"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9A"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "9089"
+    if eval rPerk
+        player.RemovePerk rPerk
+    endif
+    print "CPS Test: Perks stripped. Waiting for CPS to restore..."
+    player.AuxVarSetFlt "CPS_TS" 1
+    return
 endif
 
-; Arcade
-set rComp to GetFormFromMod "FalloutNV.esm" "10D8EB"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Arcade"
+; STATE 1: wait per-tick until Boone's Spotter is restored by CPS
+if eval fState == 1
+    if eval player.HasPerk Spotting
+        player.AuxVarSetFlt "CPS_TS" 2
+    endif
+    return
 endif
 
-; Veronica
-set rComp to GetFormFromMod "FalloutNV.esm" "E32A9"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Veronica"
+; STATE 2: check and report all perks
+if eval fState == 2
+    print "=== CPS TEST: Results ==="
+    if eval player.HasPerk Spotting
+        print "PASS: Boone - Spotter"
+    else
+        print "FAIL: Boone - Spotter"
+    endif
+    if eval player.HasPerk WhiskeyRose
+        print "PASS: Cass - Whiskey Rose"
+    else
+        print "FAIL: Cass - Whiskey Rose"
+    endif
+    if eval player.HasPerk CalmHeartPerk
+        print "PASS: Cass - Calm Heart"
+    else
+        print "FAIL: Cass - Calm Heart"
+    endif
+    if eval player.HasPerk HandOfVengeance
+        print "PASS: Cass - Hand of Vengeance"
+    else
+        print "FAIL: Cass - Hand of Vengeance"
+    endif
+    if eval player.HasPerk BetterHealing
+        print "PASS: Arcade - Better Healing"
+    else
+        print "FAIL: Arcade - Better Healing"
+    endif
+    if eval player.HasPerk ScribeAssistant
+        print "PASS: Veronica - Scribe Assistant"
+    else
+        print "FAIL: Veronica - Scribe Assistant"
+    endif
+    if eval player.HasPerk BondsOfSteel
+        print "PASS: Veronica - Bonds of Steel"
+    else
+        print "FAIL: Veronica - Bonds of Steel"
+    endif
+    if eval player.HasPerk CauselessRebel
+        print "PASS: Veronica - Causeless Rebel"
+    else
+        print "FAIL: Veronica - Causeless Rebel"
+    endif
+    if eval player.HasPerk SearchAndMark
+        print "PASS: Rex - Search and Mark"
+    else
+        print "FAIL: Rex - Search and Mark"
+    endif
+    if eval player.HasPerk EnhancedSensors
+        print "PASS: ED-E - Enhanced Sensors"
+    else
+        print "FAIL: ED-E - Enhanced Sensors"
+    endif
+    if eval player.HasPerk StealthGirl
+        print "PASS: Lily - Stealth Girl"
+    else
+        print "FAIL: Lily - Stealth Girl"
+    endif
+    if eval player.HasPerk RegularMaintenance
+        print "PASS: Raul - Regular Maintenance"
+    else
+        print "FAIL: Raul - Regular Maintenance"
+    endif
+    if eval player.HasPerk FullMaintenance
+        print "PASS: Raul - Full Maintenance"
+    else
+        print "FAIL: Raul - Full Maintenance"
+    endif
+    if eval player.HasPerk OldVaquero
+        print "PASS: Raul - Old Vaquero"
+    else
+        print "FAIL: Raul - Old Vaquero"
+    endif
+    set rPerk to GetFormFromMod "DeadMoney.esm" "8A2F"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Dean - Unclean Living"
+        else
+            print "FAIL: Dean - Unclean Living"
+        endif
+    endif
+    set rPerk to GetFormFromMod "DeadMoney.esm" "13B26"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Dog/God - In My Footsteps"
+        else
+            print "FAIL: Dog/God - In My Footsteps"
+        endif
+    endif
+    set rPerk to GetFormFromMod "DeadMoney.esm" "8A2E"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Christine - Signal Interference"
+        else
+            print "FAIL: Christine - Signal Interference"
+        endif
+    endif
+    set rPerk to GetFormFromMod "HonestHearts.esm" "B2F5"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Joshua Graham"
+        else
+            print "FAIL: Joshua Graham"
+        endif
+    endif
+    set rPerk to GetFormFromMod "HonestHearts.esm" "B2F7"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Waking Cloud"
+        else
+            print "FAIL: Waking Cloud"
+        endif
+    endif
+    set rPerk to GetFormFromMod "HonestHearts.esm" "B2F6"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Follows-Chalk"
+        else
+            print "FAIL: Follows-Chalk"
+        endif
+    endif
+    set rPerk to GetFormFromMod "LonesomeRoad.esm" "C61F"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: ED-E (LR) - Camarader-E"
+        else
+            print "FAIL: ED-E (LR) - Camarader-E"
+        endif
+    endif
+    set rPerk to GetFormFromMod "LonesomeRoad.esm" "DF65"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: ED-E (LR) - Enhanced Sensors"
+        else
+            print "FAIL: ED-E (LR) - Enhanced Sensors"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E99"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Dogmeat"
+        else
+            print "FAIL: Dogmeat"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7EA0"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Charon"
+        else
+            print "FAIL: Charon"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9B"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Fawkes"
+        else
+            print "FAIL: Fawkes"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9F"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Jericho"
+        else
+            print "FAIL: Jericho"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9E"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Clover"
+        else
+            print "FAIL: Clover"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9C"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Star Paladin Cross"
+        else
+            print "FAIL: Star Paladin Cross"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "7E9A"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Sergeant RL-3"
+        else
+            print "FAIL: Sergeant RL-3"
+        endif
+    endif
+    set rPerk to GetFormFromMod "TaleOfTwoWastelands.esm" "9089"
+    if eval rPerk
+        if eval player.HasPerk rPerk
+            print "PASS: Butch - Tunnel Snakes Rule"
+        else
+            print "FAIL: Butch - Tunnel Snakes Rule"
+        endif
+    endif
+    print "=== CPS TEST: Complete. Set bTestMode = 0 to reset. ==="
+    player.AuxVarSetFlt "CPS_TS" 99
 endif
-
-; Rex
-set rComp to GetFormFromMod "FalloutNV.esm" "10D8DF"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Rex"
-endif
-
-; ED-E (Base)
-set rComp to GetFormFromMod "FalloutNV.esm" "1732D1"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired ED-E (Base)"
-endif
-
-; Lily
-set rComp to GetFormFromMod "FalloutNV.esm" "13D830"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Lily"
-endif
-
-; Raul
-set rComp to GetFormFromMod "FalloutNV.esm" "E6105"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Raul"
-endif
-
-; === DEAD MONEY DLC ===
-
-; Dean Domino
-set rComp to GetFormFromMod "DeadMoney.esm" "1309"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Dean Domino"
-endif
-
-; Dog/God
-set rComp to GetFormFromMod "DeadMoney.esm" "1306"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Dog/God"
-endif
-
-; Christine
-set rComp to GetFormFromMod "DeadMoney.esm" "1307"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Christine"
-endif
-
-; === HONEST HEARTS DLC ===
-
-; Joshua Graham
-set rComp to GetFormFromMod "HonestHearts.esm" "93BE"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Joshua Graham"
-endif
-
-; Waking Cloud
-set rComp to GetFormFromMod "HonestHearts.esm" "9666"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Waking Cloud"
-endif
-
-; Follows-Chalk
-set rComp to GetFormFromMod "HonestHearts.esm" "94D1"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Follows-Chalk"
-endif
-
-; === LONESOME ROAD DLC ===
-
-; ED-E (Lonesome Road)
-set rComp to GetFormFromMod "LonesomeRoad.esm" "4D16"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired ED-E (LR)"
-endif
-
-; === TTW / FALLOUT 3 COMPANIONS ===
-
-; Dogmeat
-set rComp to GetFormFromMod "Fallout3.esm" "6A775"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Dogmeat"
-endif
-
-; Charon
-set rComp to GetFormFromMod "Fallout3.esm" "2B8E1"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Charon"
-endif
-
-; Fawkes
-set rComp to GetFormFromMod "Fallout3.esm" "2D9CF"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Fawkes"
-endif
-
-; Jericho
-set rComp to GetFormFromMod "Fallout3.esm" "3B5D"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Jericho"
-endif
-
-; Clover
-set rComp to GetFormFromMod "Fallout3.esm" "384D8"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Clover"
-endif
-
-; Star Paladin Cross
-set rComp to GetFormFromMod "Fallout3.esm" "62735"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Star Paladin Cross"
-endif
-
-; Sergeant RL-3
-set rComp to GetFormFromMod "Fallout3.esm" "94285"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Sergeant RL-3"
-endif
-
-; Butch
-set rComp to GetFormFromMod "Fallout3.esm" "2A4E8"
-if eval rComp
-    rComp.SetPlayerTeammate 1
-    rComp.MoveTo player
-    print "CPS Test: Hired Butch"
-endif
-
-print "=== CPS TEST MODE: All available companions hired and teleported ==="

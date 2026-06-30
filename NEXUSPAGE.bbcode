@@ -1,0 +1,137 @@
+[size=5][b]Companion Perks Stay - (ESPless with TTW Support)[/b][/size]
+
+A lightweight, plugin-free mod that permanently retains companion perks after dismissal. Once you've recruited a companion and earned their perk, it stays, even after they leave your party.
+
+[b][color=#ff0000]⚠️ WARNING:[/color][/b] This mod is ESPless and does not edit any scripts, so dismissing companions will still show the perk-loss popup. The script automatically restores the perk afterward.
+
+[color=#f1c232]NOTE: [/color][color=#ffffff]Some perks after the companion has left make no sense as it relies of dialogue options but who doesn't like collecting them all.[/color]
+[line]
+
+[size=4][b]Features[/b][/size]
+[list]
+[*][b]Permanent Perks[/b] — Companion perks (Spotter, Whiskey Rose, Enhanced Sensors, etc.) are retained after dismissal.[/*]
+[*][b]ESPless[/b] — No .esp or .esm required. Does not use a plugin slot.[/*]
+[*][b]Zero Performance Impact[/b] — Each companion is checked via a tiny, independent callback every ~1 second.[/*]
+[*][b]Safe & Clean[/b] — Install or uninstall at any point without corrupting saves.[/*]
+[*][b]Full DLC Support[/b] — Dead Money, Honest Hearts, Lonesome Road companions included.[/*]
+[*][b]Full TTW Support[/b] — All 8 Fallout 3 companions (Dogmeat, Jericho, Charon, Fawkes, Clover, Cross, RL-3, Butch) supported.[/*]
+[*][b]Branching Quest Perks[/b] — Tracks story-completion perks for Cass, Veronica, Raul, and both ED-E forms.[/*]
+[*][b]Smart Notifications[/b] — Shows a corner message when a perk is retained. Uses B42 Notify if installed, falls back to MessageEx otherwise.[/*]
+[*][b]INI Configurable[/b] — Toggle notifications and adjust check intervals.[/*]
+[*][b]Built-in Test Mode[/b] — Arms all retention flags, strips companion perks, then waits for CPS to restore them and prints a PASS/FAIL result for all 30 perks. Enable via the INI.[/*]
+[/list]
+
+[line]
+
+[size=4][b]Supported Companions (32 tracked perks)[/b][/size]
+
+[b]Fallout: New Vegas - Source: [url=https://fallout.fandom.com/wiki/Fallout:_New_Vegas_perks#Companion_perks]Fallout Wiki[/url] [/b]
+[list]
+[*][b]Boone[/b] — [i]Spotter[/i][/*]
+[*][b]Cass[/b] — [i]Whiskey Rose[/i] / [i]Calm Heart[/i] / [i]Hand of Vengeance[/i][/*]
+[*][b]Arcade[/b] — [i]Better Healing[/i][/*]
+[*][b]Veronica[/b] — [i]Scribe Assistant[/i] / [i]Bonds of Steel[/i] / [i]Causeless Rebel[/i][/*]
+[*][b]Rex[/b] — [i]Search and Mark[/i][/*]
+[*][b]ED-E (Base & Upgraded)[/b] — [i]Enhanced Sensors[/i] [i](Tracks all 3 upgrade forms: EDE 1Ref/2Ref/3Ref)[/i][/*]
+[*][b]Lily[/b] — [i]Stealth Girl[/i][/*]
+[*][b]Raul[/b] — [i]Regular Maintenance[/i] / [i]Full Maintenance[/i] / [i]Old Vaquero[/i] [i](Tracks all 3 quest perk outcomes)[/i][/*]
+[/list]
+
+[b]Official DLCs - Source: [/b][url=https://fallout.fandom.com/wiki/Fallout:_New_Vegas_perks#Companion_perks]Fallout Wiki[/url]
+[list]
+[*][b]Dean Domino[/b] — [i]Unclean Living[/i] (Dead Money)[/*]
+[*][b]Dog/God[/b] — [i]In My Footsteps[/i] (Dead Money)[/*]
+[*][b]Christine[/b] — [i]Signal Interference[/i] (Dead Money)[/*]
+[*][b]Joshua Graham[/b] — [i]Way of the Canaanite[/i] (Honest Hearts)[/*]
+[*][b]Waking Cloud[/b] — [i]Quiet As The Waters[/i] (Honest Hearts)[/*]
+[*][b]Follows-Chalk[/b] — [i]Well-Stacked Cairns[/i] (Honest Hearts)[/*]
+[*][b]ED-E (Lonesome Road)[/b] — [i]Camarader-E[/i] / [i]Enhanced Sensors[/i] (Lonesome Road)[/*]
+[/list]
+
+[b]Tale of Two Wastelands (Fallout 3) - [/b]Source: [url=https://fallout.wiki/wiki/Mod:Tale_of_Two_Wastelands/Perks#Companion_Perks]Fallout Wiki (Tale of Two Wastelands)[/url]
+[list]
+[*][b]Dogmeat[/b] — [i]Man's Best Friend[/i][/*]
+[*][b]Charon[/b] — [i]The Contract[/i][/*]
+[*][b]Fawkes[/b] — [i]Over-Compensation[/i][/*]
+[*][b]Jericho[/b] — [i]Scrappy Survivor[/i][/*]
+[*][b]Clover[/b] — [i]Get Lucky[/i][/*]
+[*][b]Star Paladin Cross[/b] — [i]Second Skin[/i][/*]
+[*][b]Sergeant RL-3[/b] — [i]Drill Sergeant[/i][/*]
+[*][b]Butch DeLoria[/b] — [i]Tunnel Snakes Rule[/i][/*]
+[/list]
+
+[line]
+
+[size=4][b]Requirements[/b][/size]
+[list]
+[*][url=https://github.com/xNVSE/xNVSE]xNVSE[/url] v6.1.0+[/*]
+[*][url=https://www.nexusmods.com/newvegas/mods/58277]JIP LN NVSE Plugin[/url] v56.00+[/*]
+[*][url=https://www.nexusmods.com/newvegas/mods/66970]JohnnyGuitar NVSE[/url] v4.00+[/*]
+[/list]
+
+[b]Optional:[/b]
+[list]
+[*][url=https://www.nexusmods.com/newvegas/mods/80868]B42 Notify[/url] — For Skyrim-style corner notifications instead of MessageEx popups.[/*]
+[*][url=https://www.nexusmods.com/newvegas/mods/77650]Tale of Two Wastelands[/url] — Required for Fallout 3 companion support.[/*]
+[/list]
+
+[line]
+
+[size=4][b]Installation[/b][/size]
+
+[b]Mod Manager (Recommended):[/b]
+[list=1]
+[*]Download and install using Mod Organizer 2 or Vortex.[/*]
+[*]Enable the mod. No load order sorting needed, there is no ESP.[/*]
+[/list]
+
+[b]Manual:[/b]
+[list=1]
+[*]Extract the archive into your Fallout New Vegas [font=Courier New]Data[/font] folder.[/*]
+[/list]
+
+[line]
+
+[size=4][b]Configuration[/b][/size]
+
+Edit [font=Courier New]config/CompanionPerksStay.ini[/font]:
+
+[code]
+[Settings]
+; Show corner notifications when a perk is retained (1 = on, 0 = off)
+bShowNotifications = 1
+
+; Frames between perk checks (300 = ~5 seconds at 60 FPS)
+iCheckInterval = 300
+
+[Testing]
+; Run the built-in perk retention test (set to 1, load save, check console with ~)
+; Arms all AuxVars, strips perks, waits for CPS to restore them, then prints PASS/FAIL.
+; Set back to 0 to reset.
+bTestMode = 0[/code]
+
+[line]
+
+[size=4][b]Compatibility[/b][/size]
+[list]
+[*]Compatible with [b]all[/b] companion mods (including JIP Companions Command & Control).[/*]
+[*]Compatible with all perk overhauls and gameplay mods.[/*]
+[*]Fully compatible with Tale of Two Wastelands and all official DLCs.[/*]
+[*]No ESP means no plugin conflicts and no load order concerns.[/*]
+[/list]
+
+[line]
+
+[size=4][b]Uninstallation[/b][/size]
+Simply disable or delete the mod. No save cleaning required, auxiliary variables are automatically cleared on the next save load.
+
+[line]
+
+[size=4][b]Credits[/b][/size]
+[list]
+[*][url=https://www.nexusmods.com/newvegas/mods/67883]xNVSE Team[/url][/*]
+[*][url=https://www.nexusmods.com/newvegas/mods/58277]jazzisparis[/url] — JIP LN NVSE[/*]
+[*][url=https://www.nexusmods.com/newvegas/mods/66927]carxt[/url] — JohnnyGuitar NVSE[/*]
+[*][url=https://taleoftwowastelands.com/]The TTW Team[/url] — Tale of Two Wastelands[/*]
+[*][url=https://www.nexusmods.com/newvegas/mods/80085]Xilandro[/url] — B42 Notify - Corner Messages Overhaul[/*]
+[/list]

@@ -34,6 +34,34 @@ endif
 endif
 end) 1 60 9
 
+; Cass - Calm Heart
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "135F19"
+if eval c
+if eval c.GetPlayerTeammate && player.HasPerk CalmHeartPerk
+player.AuxVarSetFlt "CPS_CC" 1
+endif
+if eval player.AuxVarGetFlt "CPS_CC" && player.HasPerk CalmHeartPerk == 0
+player.AddPerk CalmHeartPerk
+MessageEx "Perk retained: Cass - Calm Heart"
+endif
+endif
+end) 1 60 9
+
+; Cass - Hand of Vengeance
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "135F19"
+if eval c
+if eval c.GetPlayerTeammate && player.HasPerk HandOfVengeance
+player.AuxVarSetFlt "CPS_CV" 1
+endif
+if eval player.AuxVarGetFlt "CPS_CV" && player.HasPerk HandOfVengeance == 0
+player.AddPerk HandOfVengeance
+MessageEx "Perk retained: Cass - Hand of Vengeance"
+endif
+endif
+end) 1 60 9
+
 ; Arcade
 SetGameMainLoopCallback (begin function {}
 ref c = GetFormFromMod "FalloutNV.esm" "10D8EB"
@@ -58,6 +86,34 @@ endif
 if eval player.AuxVarGetFlt "CPS_Ve" && player.HasPerk ScribeAssistant == 0
 player.AddPerk ScribeAssistant
 MessageEx "Perk retained: Veronica - Scribe Assistant"
+endif
+endif
+end) 1 60 9
+
+; Veronica - Bonds of Steel
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "E32A9"
+if eval c
+if eval c.GetPlayerTeammate && player.HasPerk BondsOfSteel
+player.AuxVarSetFlt "CPS_VB" 1
+endif
+if eval player.AuxVarGetFlt "CPS_VB" && player.HasPerk BondsOfSteel == 0
+player.AddPerk BondsOfSteel
+MessageEx "Perk retained: Veronica - Bonds of Steel"
+endif
+endif
+end) 1 60 9
+
+; Veronica - Causeless Rebel
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "FalloutNV.esm" "E32A9"
+if eval c
+if eval c.GetPlayerTeammate && player.HasPerk CauselessRebel
+player.AuxVarSetFlt "CPS_VC" 1
+endif
+if eval player.AuxVarGetFlt "CPS_VC" && player.HasPerk CauselessRebel == 0
+player.AddPerk CauselessRebel
+MessageEx "Perk retained: Veronica - Causeless Rebel"
 endif
 endif
 end) 1 60 9
@@ -192,14 +248,14 @@ end) 1 60 9
 ; Dog/God
 SetGameMainLoopCallback (begin function {}
 ref c = GetFormFromMod "DeadMoney.esm" "1306"
-ref p = GetFormFromMod "DeadMoney.esm" "8A2E"
+ref p = GetFormFromMod "DeadMoney.esm" "13B26"
 if eval c && p
 if eval c.GetPlayerTeammate || player.HasPerk p
 player.AuxVarSetFlt "CPS_Dg" 1
 endif
 if eval player.AuxVarGetFlt "CPS_Dg" && player.HasPerk p == 0
 player.AddPerk p
-MessageEx "Perk retained: Dog/God - Signal Interference"
+MessageEx "Perk retained: Dog/God - In My Footsteps"
 endif
 endif
 end) 1 60 9
@@ -207,14 +263,14 @@ end) 1 60 9
 ; Christine
 SetGameMainLoopCallback (begin function {}
 ref c = GetFormFromMod "DeadMoney.esm" "1307"
-ref p = GetFormFromMod "DeadMoney.esm" "13B26"
+ref p = GetFormFromMod "DeadMoney.esm" "8A2E"
 if eval c && p
 if eval c.GetPlayerTeammate || player.HasPerk p
 player.AuxVarSetFlt "CPS_Ch" 1
 endif
 if eval player.AuxVarGetFlt "CPS_Ch" && player.HasPerk p == 0
 player.AddPerk p
-MessageEx "Perk retained: Christine - In My Footsteps"
+MessageEx "Perk retained: Christine - Signal Interference"
 endif
 endif
 end) 1 60 9
@@ -268,7 +324,7 @@ end) 1 60 9
 
 ; === LONESOME ROAD DLC ===
 
-; ED-E (Lonesome Road)
+; ED-E (Lonesome Road - Camarader-E)
 SetGameMainLoopCallback (begin function {}
 ref c = GetFormFromMod "LonesomeRoad.esm" "4D16"
 ref p = GetFormFromMod "LonesomeRoad.esm" "C61F"
@@ -278,7 +334,22 @@ player.AuxVarSetFlt "CPS_EL" 1
 endif
 if eval player.AuxVarGetFlt "CPS_EL" && player.HasPerk p == 0
 player.AddPerk p
-MessageEx "Perk retained: ED-E (LR) - Camaraderie"
+MessageEx "Perk retained: ED-E (LR) - Camarader-E"
+endif
+endif
+end) 1 60 9
+
+; ED-E (Lonesome Road - Enhanced Sensors)
+SetGameMainLoopCallback (begin function {}
+ref c = GetFormFromMod "LonesomeRoad.esm" "4D16"
+ref p = GetFormFromMod "LonesomeRoad.esm" "DF65"
+if eval c && p
+if eval c.GetPlayerTeammate || player.HasPerk p
+player.AuxVarSetFlt "CPS_EE" 1
+endif
+if eval player.AuxVarGetFlt "CPS_EE" && player.HasPerk p == 0
+player.AddPerk p
+MessageEx "Perk retained: ED-E (LR) - Enhanced Sensors"
 endif
 endif
 end) 1 60 9
@@ -393,31 +464,16 @@ end) 1 60 9
 ; Butch
 SetGameMainLoopCallback (begin function {}
 ref c = GetFormFromMod "Fallout3.esm" "2A4E8"
-ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "7E9D"
+ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "9089"
 if eval c && p
 if eval c.GetPlayerTeammate || player.HasPerk p
 player.AuxVarSetFlt "CPS_Bu" 1
 endif
 if eval player.AuxVarGetFlt "CPS_Bu" && player.HasPerk p == 0
 player.AddPerk p
-MessageEx "Perk retained: Butch"
+MessageEx "Perk retained: Butch - Tunnel Snakes Rule"
 endif
 endif
 end) 1 60 9
 
-; Butch (Advanced)
-SetGameMainLoopCallback (begin function {}
-ref c = GetFormFromMod "Fallout3.esm" "2A4E8"
-ref p = GetFormFromMod "TaleOfTwoWastelands.esm" "9089"
-if eval c && p
-if eval c.GetPlayerTeammate || player.HasPerk p
-player.AuxVarSetFlt "CPS_BA" 1
-endif
-if eval player.AuxVarGetFlt "CPS_BA" && player.HasPerk p == 0
-player.AddPerk p
-MessageEx "Perk retained: Butch (advanced)"
-endif
-endif
-end) 1 60 9
-
-print "Companion Perks Stay: Loaded. 28 companions tracked."
+print "Companion Perks Stay: Loaded. 32 callbacks active."
