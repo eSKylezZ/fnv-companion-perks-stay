@@ -4,12 +4,12 @@ Keeps companion perks active permanently once you've recruited them, even after 
 
 ## Requirements
 
-* [xNVSE](https://github.com/xNVSE/xNVSE) (v6.1.0 or newer)
+* [xNVSE](https://www.nexusmods.com/newvegas/mods/67883) (v6.1.0 or newer)
 * [JIP LN NVSE Plugin](https://www.nexusmods.com/newvegas/mods/58277) (v56.00 or newer)
-* [JohnnyGuitar NVSE](https://www.nexusmods.com/newvegas/mods/66970) (v4.00 or newer)
+* [JohnnyGuitar NVSE](https://www.nexusmods.com/newvegas/mods/66927) (v4.00 or newer)
 
 ### Optional
-* [B42 Notify](https://www.nexusmods.com/newvegas/mods/80868) (for corner message popups)
+* [B42 Notify](https://www.nexusmods.com/newvegas/mods/80085) (for corner message popups)
 * [Tale of Two Wastelands](https://taleoftwowastelands.com/) (required for Fallout 3 companion support)
 
 ---
@@ -57,8 +57,8 @@ bTestMode = 0
 
 ## Credits
 
-* [xNVSE Team](https://github.com/xNVSE/xNVSE)
+* [xNVSE Team](https://www.nexusmods.com/newvegas/mods/67883)
 * [jazzisparis](https://www.nexusmods.com/newvegas/mods/58277) (JIP LN NVSE)
-* [carxt](https://www.nexusmods.com/newvegas/mods/66970) (JohnnyGuitar NVSE)
+* [carxt](https://www.nexusmods.com/newvegas/mods/66927) (JohnnyGuitar NVSE)
 * [The TTW Team](https://taleoftwowastelands.com/) (Tale of Two Wastelands)
-* [Xilandro](https://www.nexusmods.com/newvegas/mods/80868) (B42 Notify template support)
+* [Xilandro](https://www.nexusmods.com/newvegas/mods/80085) (B42 Notify template support)
